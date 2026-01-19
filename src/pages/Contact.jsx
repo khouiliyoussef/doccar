@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 const WHATSAPP_NUMBER = "212612002231";
 
 export default function Contact({ t }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
 
   const mapsLink = "https://maps.app.goo.gl/xLGCS5BnckiPtgnj8";
@@ -17,7 +18,7 @@ export default function Contact({ t }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const text = `Bonjour, je veux un devis.\nNom: ${name}\nTéléphone: ${phone}\nMessage: ${msg}`;
+    const text = `Bonjour, je veux un devis.\nNom: ${name} \nEmail: ${email} \nTéléphone: ${phone}\nMessage: ${msg}`;
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
       "_blank"
@@ -47,7 +48,13 @@ export default function Contact({ t }) {
                 placeholder={t.contactName}
                 required
               />
-              <input type="email" placeholder={t.contactEmail} />
+              <input 
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}              
+              placeholder={t.contactEmail}
+              required
+               />
               <input
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}

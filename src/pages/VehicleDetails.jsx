@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@dr.pogodin/react-helmet";
 import { useParams, useNavigate } from "react-router-dom";
 import { vehicles } from "../data/vehicles";
 
