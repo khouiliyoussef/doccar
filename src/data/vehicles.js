@@ -1,6 +1,3 @@
-import img from "../images/audi.jpg";
-import img1 from "../images/imgmerc.jpg";
-import merc from "../images/meer.jpg";
 import a31 from "../images/a3/2025_10_04_19_14_IMG_6983.JPG"
 import a32 from "../images/a3/2025_10_04_19_15_IMG_6985.JPG"
 import a33 from "../images/a3/2025_10_04_19_15_IMG_6987.JPG"
