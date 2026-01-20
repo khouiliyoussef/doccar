@@ -9,17 +9,20 @@ import Services from "../components/Services";
 
 const WHATSAPP_NUMBER = "212612002231";
 
+// ✅ خارج component باش ما يتبدلش كل render
+const heroImages = [img, img1, merc];
+
 export default function Home({ t }) {
   const navigate = useNavigate();
-  const heroImages = [img, img1, merc];
   const [currentHero, setCurrentHero] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentHero((p) => (p + 1) % heroImages.length);
     }, 6000);
+
     return () => clearInterval(interval);
-  }, []);
+  }, []); // ✅ ما بقا حتى warning
 
   const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     "Bonjour, je veux demander un devis / infos."
@@ -44,6 +47,7 @@ export default function Home({ t }) {
             className={`hero-img ${index === currentHero ? "active" : ""}`}
           />
         ))}
+
         <div className="hero-overlay"></div>
 
         <div className="hero-content">
